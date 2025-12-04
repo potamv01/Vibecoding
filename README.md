@@ -4,7 +4,7 @@
 
 # Run and deploy your AI Studio app
 
-This contains everything you need to run your app locally.
+This contains everything you need to run our gemini card creater app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/16T7bytIvK0XUc2iEgmpLgXOLeTFELxrG
 
