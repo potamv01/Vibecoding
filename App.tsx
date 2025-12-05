@@ -149,7 +149,7 @@ export default function App() {
               <div className="flex gap-2 mb-4">
                 <button
                   onClick={handleGenerateSuggestions}
-                  disabled={loading.suggestions || !card.occasion}
+                  disabled={loading.suggestions || !card.occasion || !card.recipient}
                   className="flex-1 flex items-center justify-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-100 transition-colors disabled:opacity-50"
                 >
                   {loading.suggestions ? <Loader2 className="animate-spin w-4 h-4"/> : <Wand2 className="w-4 h-4" />}
@@ -157,7 +157,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={handleGenerateMessage}
-                  disabled={loading.message || !card.occasion}
+                  disabled={loading.message || !card.occasion || !card.recipient}
                   className="flex-1 flex items-center justify-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-100 transition-colors disabled:opacity-50"
                 >
                   {loading.message ? <Loader2 className="animate-spin w-4 h-4"/> : <PenTool className="w-4 h-4" />}
