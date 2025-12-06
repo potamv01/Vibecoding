@@ -1,8 +1,12 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-// Initialize the API client. 
-// Note: API_KEY is expected to be in process.env.API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+
+if (!apiKey) {
+  throw new Error("API Key not found. Set GEMINI_API_KEY in your environment.");
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 /**
  * Generates a list of suggested quotes/messages based on the user's inputs.
@@ -13,7 +17,7 @@ export const generateSuggestions = async (
   recipient: string,
   tone: string
 ): Promise<string[]> => {
-  if (!process.env.API_KEY) throw new Error("API Key not found");
+  if (!apiKey) throw new Error("API Key not found");
 
   const prompt = `Generate 5 distinct greeting card messages for a ${occasion} card for ${recipient}. The tone should be ${tone}. Keep them concise (under 30 words).`;
 
@@ -51,7 +55,7 @@ export const generateMessage = async (
   recipient: string,
   tone: string
 ): Promise<string> => {
-  if (!process.env.API_KEY) throw new Error("API Key not found");
+  if (!apiKey) throw new Error("API Key not found");
 
   const prompt = `Write a single, perfect greeting card message for a ${occasion} card for ${recipient}. The tone should be ${tone}. Just return the message text, nothing else.`;
 
@@ -75,7 +79,7 @@ export const generateImage = async (
   occasion: string,
   tone: string
 ): Promise<string> => {
-  if (!process.env.API_KEY) throw new Error("API Key not found");
+  if (!apiKey) throw new Error("API Key not found");
 
   // Construct a prompt optimized for background images (plenty of negative space, artistic)
   const prompt = `A beautiful, artistic background image for a ${occasion} greeting card. Tone: ${tone}. High quality, abstract or scenic, soft lighting, suitable for overlaying text. No text in the image.`;
