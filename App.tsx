@@ -101,12 +101,22 @@ export default function App() {
               Gemini Cards
             </h1>
           </div>
-          {savedId && (
-            <div className="flex items-center gap-2 text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-200">
-              <Share2 size={16} />
-              <span>Shared ID: {savedId}</span>
-            </div>
-          )}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/potamv01/VenkatPotamsetti"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-indigo-700 bg-indigo-50 px-3 py-2 rounded-lg border border-indigo-100 hover:bg-indigo-100 transition-colors"
+            >
+              <span>Portfolio</span>
+            </a>
+            {savedId && (
+              <div className="flex items-center gap-2 text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                <Share2 size={16} />
+                <span>Shared ID: {savedId}</span>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -149,7 +159,7 @@ export default function App() {
               <div className="flex gap-2 mb-4">
                 <button
                   onClick={handleGenerateSuggestions}
-                  disabled={loading.suggestions || !card.occasion}
+                  disabled={loading.suggestions || !card.occasion || !card.recipient}
                   className="flex-1 flex items-center justify-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-100 transition-colors disabled:opacity-50"
                 >
                   {loading.suggestions ? <Loader2 className="animate-spin w-4 h-4"/> : <Wand2 className="w-4 h-4" />}
@@ -157,7 +167,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={handleGenerateMessage}
-                  disabled={loading.message || !card.occasion}
+                  disabled={loading.message || !card.occasion || !card.recipient}
                   className="flex-1 flex items-center justify-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-100 transition-colors disabled:opacity-50"
                 >
                   {loading.message ? <Loader2 className="animate-spin w-4 h-4"/> : <PenTool className="w-4 h-4" />}

@@ -22,7 +22,7 @@ export const SuggestionList: React.FC<SuggestionListProps> = ({ suggestions, onS
             onClick={() => onSelect(text)}
             className="text-left text-sm p-3 rounded-lg bg-white border border-slate-200 hover:border-brand-300 hover:shadow-sm hover:bg-brand-50 transition-all text-slate-700"
           >
-            "{text}"
+            {text}
           </button>
         ))}
       </div>
