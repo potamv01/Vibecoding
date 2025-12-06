@@ -101,12 +101,22 @@ export default function App() {
               Gemini Cards
             </h1>
           </div>
-          {savedId && (
-            <div className="flex items-center gap-2 text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-200">
-              <Share2 size={16} />
-              <span>Shared ID: {savedId}</span>
-            </div>
-          )}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/potamv01/VenkatPotamsetti"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-indigo-700 bg-indigo-50 px-3 py-2 rounded-lg border border-indigo-100 hover:bg-indigo-100 transition-colors"
+            >
+              <span>Portfolio</span>
+            </a>
+            {savedId && (
+              <div className="flex items-center gap-2 text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                <Share2 size={16} />
+                <span>Shared ID: {savedId}</span>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 

@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/16T7bytIvK0XUc2iEgmpLgX
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy to GitHub Pages
+
+The repository includes a GitHub Actions workflow that builds the Vite app and publishes the `dist/` output to GitHub Pages.
+
+1. In your GitHub repository settings, enable GitHub Pages with the **Source** set to **GitHub Actions**.
+2. Push to the `work` branch (or trigger the workflow manually) to build and deploy to `https://potamv01.github.io/VenkatPotamsetti/`.
